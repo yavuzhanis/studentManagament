@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <div class="row align-items-center">
+       <div class="col">
+          <h3 class="page-title">Students</h3>
+          <ul class="breadcrumb">
+             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+             <li class="breadcrumb-item active">Students</li>
+          </ul>
+       </div>
+       <div class="col-auto text-right float-right ml-auto">
+          <button  type="button" class="btn btn-warning mr-2 " data-toggle="modal" data-target="modal-dialog modal-lg"><i class="fas fa-pray"></i>&nbsp;Leave Apply History</button>
+         
+       </div>
+    </div>
+ </div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method='POST' action="{% url 'add_course' %}" >
+                    {% csrf_token %}
+                    <div class="col-12">
+                        <h5 class="form-title"><span>Apply For Leave</span></h5>
+                    </div>
+
+                    {% include 'includes/messages.html' %}
+
+                    
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Leave Date</label>
+                            <input type="date" class="form-control" name="course_name" required>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Leave Message</label>
+                            <textarea name="address" class="form-control" required style="height: 250px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Add Course</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
